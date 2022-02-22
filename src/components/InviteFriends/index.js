@@ -6,28 +6,41 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import {MAIN_COLOR, SCREEN_HEIGHT} from '../../assets/constant';
 import ppDummy from '../../assets/images/dummyPP.jpg';
+import IconPlus from '../../assets/icons/Plus.svg';
 
-const ContactsList = () => {
+const InviteFriends = () => {
   return (
     <View style={styles.container}>
       <View style={styles.modal}>
-        <Text style={styles.modalTitle}>My Contact</Text>
+        <Text style={styles.modalTitle}>Invite Friends</Text>
+        <TextInput style={styles.input} placeholder="Search by email..." />
         <ScrollView style={{maxHeight: SCREEN_HEIGHT * 0.35}}>
           <TouchableOpacity style={{flexDirection: 'row', margin: 3}}>
             <Image source={ppDummy} style={styles.pp} />
-            <View style={{marginLeft: 20}}>
-              <Text style={styles.name}>Name</Text>
-              <Text style={styles.status}>Online</Text>
+            <View style={styles.contactBox}>
+              <View>
+                <Text style={styles.name}>Name</Text>
+                <Text style={styles.email}>some@gmail.com</Text>
+              </View>
+              <View style={styles.plus}>
+                <IconPlus height={18} width={18} />
+              </View>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={{flexDirection: 'row', margin: 3}}>
             <Image source={ppDummy} style={styles.pp} />
-            <View style={{marginLeft: 20}}>
-              <Text style={styles.name}>Name</Text>
-              <Text style={styles.status}>Online</Text>
+            <View style={styles.contactBox}>
+              <View>
+                <Text style={styles.name}>Name</Text>
+                <Text style={styles.email}>some@gmail.com</Text>
+              </View>
+              <View style={styles.plus}>
+                <IconPlus height={18} width={18} />
+              </View>
             </View>
           </TouchableOpacity>
         </ScrollView>
@@ -36,7 +49,7 @@ const ContactsList = () => {
   );
 };
 
-export default ContactsList;
+export default InviteFriends;
 
 const styles = StyleSheet.create({
   container: {
@@ -66,6 +79,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginVertical: 10,
   },
+  contactBox: {
+    marginLeft: 20,
+    marginRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexGrow: 1,
+  },
   pp: {
     width: 60,
     height: 60,
@@ -76,9 +96,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik-Regular',
     fontSize: 18,
   },
-  status: {
-    fontSize: 15,
-    marginTop: 1,
-    color: MAIN_COLOR,
+  email: {fontSize: 15, marginTop: 1, color: MAIN_COLOR},
+  plus: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    width: '100%',
+    height: 40,
+    borderRadius: 8,
+    fontSize: 16,
+    marginBottom: 10,
   },
 });

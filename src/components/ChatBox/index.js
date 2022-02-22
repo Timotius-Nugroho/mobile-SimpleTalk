@@ -2,10 +2,17 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import dummyPP from '../../assets/images/dummyPP.jpg';
 import {MAIN_COLOR} from '../../assets/constant';
+import {useNavigation} from '@react-navigation/native';
 
 const ChatBox = ({name, newMsg, num, time}) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate('ChatRoom');
+      }}>
       <View style={{flexDirection: 'row'}}>
         <Image source={dummyPP} style={styles.pp} />
         <View style={{padding: 10}}>

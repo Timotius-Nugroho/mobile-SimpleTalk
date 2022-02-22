@@ -2,10 +2,17 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import dummyPP from '../../assets/images/dummyPP.jpg';
 import {MAIN_COLOR} from '../../assets/constant';
+import {useNavigation} from '@react-navigation/native';
 
 const HeadRoom = ({photo, name, status}) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate('FriendProfile', {id: null});
+      }}>
       <Image source={dummyPP} style={styles.pp} />
       <View style={{marginLeft: 15}}>
         <Text style={styles.name}>{name}</Text>

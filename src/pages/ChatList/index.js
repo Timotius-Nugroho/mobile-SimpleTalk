@@ -8,10 +8,11 @@ import {
   TouchableWithoutFeedback,
   TextInput,
 } from 'react-native';
-import {MAIN_COLOR, SCREEN_HEIGHT, SCREEN_WIDTH} from '../../assets/constant';
+import {MAIN_COLOR, SCREEN_HEIGHT} from '../../assets/constant';
 import ChatBox from '../../components/ChatBox';
 import Menu from '../../components/Menu';
 import ContactsList from '../../components/ContactsList';
+import InviteFriends from '../../components/InviteFriends';
 import IconMenu from '../../assets/icons/Menu.svg';
 import IconPlus from '../../assets/icons/Plus.svg';
 import IconSearch from '../../assets/icons/Search.svg';
@@ -35,6 +36,7 @@ const ChatList = ({navigation}) => {
           INVITE: false,
           FAQ: false,
         });
+        navigation.navigate('MyProfile');
         break;
 
       case 'CONTACTS':
@@ -81,13 +83,13 @@ const ChatList = ({navigation}) => {
 
   return (
     <TouchableWithoutFeedback
-      style={styles.container}
       onPress={() => {
         handleMenu();
       }}>
-      <View>
+      <View style={styles.container}>
         {showMenu.MENU ? <Menu handleMenu={handleMenu} /> : null}
         {showMenu.CONTACTS ? <ContactsList /> : null}
+        {showMenu.INVITE ? <InviteFriends /> : null}
         <View style={styles.head}>
           <Text style={styles.title}>SimpleTalk</Text>
           <TouchableOpacity

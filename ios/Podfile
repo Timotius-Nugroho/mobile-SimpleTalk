@@ -12,6 +12,8 @@ target 'simpleTalk' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-document-picker', :path => '../node_modules/react-native-document-picker'
+
   target 'simpleTalkTests' do
     inherit! :complete
     # Pods for testing
