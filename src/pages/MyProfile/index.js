@@ -53,7 +53,7 @@ const MyProfile = () => {
     if (photo !== null) {
       setData.append('photo', photo);
     }
-    console.log(setData);
+    // console.log(setData);
   };
 
   useEffect(() => {
